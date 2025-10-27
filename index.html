@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bonding Layer | Seamless React Integration</title>
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use Inter font for clean, modern look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712; /* Extreme dark gray/almost black */
+        }
+        
+        /* Custom styles for professional accents */
+        .accent-text {
+            /* Clean highlight for key words */
+            color: #8b5cf6; /* Indigo-500 */
+        }
+
+        /* Styling for the message box to ensure it looks clean and modern */
+        .message-box-base {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2000;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease-in-out;
+            width: 90%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body class="text-gray-100 min-h-screen">
+
+    <!-- Navbar --><header class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-md border-b border-gray-800">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            
+            <div class="flex items-center space-x-12">
+                <!-- Logo/Brand Name --><a href="#" class="text-3xl font-extrabold text-white tracking-wide flex items-center">
+                    <span class="text-indigo-400">REACT</span><span class="text-gray-400">BOND</span>
+                </a>
+                
+                <!-- New Nav Link to Pricing --><a href="#pricing" class="text-gray-300 hover:text-indigo-400 transition hidden md:block font-semibold">Pricing</a>
+            </div>
+
+            <!-- Custom Signup Button --><button id="signup-button" 
+                    class="bg-indigo-600 hover:bg-indigo-700 text-sm font-semibold py-2.5 px-6 rounded-lg transition duration-300 transform hover:scale-[1.02] shadow-lg shadow-indigo-500/30">
+                Only a licensed developer can signup
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section --><section class="bg-gray-900 pt-32 pb-48 border-b border-gray-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                
+                <!-- Pre-headline --><p class="text-lg font-medium text-indigo-400 mb-4 tracking-widest uppercase">
+                    The Enterprise Integration Layer
+                </p>
+                
+                <!-- Main Headline --><h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-8">
+                    Define State. <br class="hidden sm:block">
+                    Achieve <span class="accent-text">App Bonding</span>
+                    <br class="hidden sm:block">
+                    in <span class="text-white">Modern React.</span>
+                </h1>
+                
+                <!-- Subtext --><p class="text-xl text-gray-400 max-w-4xl mx-auto mb-12">
+                    Eliminate component silos and manage cross-application communication with a single,
+                    declarative Bonding Layer. Built for performance, designed for scale.
+                </p>
+
+                <!-- Call to Action Button (Now points to Pricing) --><button onclick="document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });"
+                        class="bg-white text-gray-900 text-lg font-bold py-3.5 px-10 rounded-xl transition duration-300 transform hover:scale-[1.05] shadow-2xl hover:bg-gray-200 ring-4 ring-indigo-500/20">
+                    View Enterprise Licensing
+                </button>
+            </div>
+        </section>
+        
+        <!-- Key Features Section (Grid Layout) --><section id="architecture" class="py-28 sm:py-36 bg-[#030712]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-4 text-white">
+                    The Three Pillars of <span class="accent-text">The Bond</span>
+                </h2>
+                <p class="text-lg text-center text-gray-400 max-w-3xl mx-auto mb-20">
+                    A novel approach to state synchronization, data fetching, and micro-frontend orchestration within React applications.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Pillar 1: Declarative State Linking --><div class="bg-gray-800 p-8 rounded-xl transition duration-300 hover:bg-gray-700/70 shadow-2xl border border-gray-700 hover:border-indigo-600">
+                        <div class="flex items-center justify-center h-14 w-14 rounded-full bg-indigo-600/80 text-white mb-6 shadow-xl">
+                            <!-- Icon: Link --><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656-5.656l-4.5 4.5a4 4 0 005.656 5.656l1.102-1.101M16.172 13.828l4.5-4.5a4 4 0 00-5.656-5.656l-1.102 1.101m-.356 7.472l-3.5-3.5"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Declarative State Linking</h3>
+                        <p class="text-gray-400">
+                            Define your shared state once, and let the Bonding Core handle real-time synchronization across the entire component tree, regardless of nesting depth or micro-app boundary.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 2: Cross-Protocol Data Fabric --><div class="bg-gray-800 p-8 rounded-xl transition duration-300 hover:bg-gray-700/70 shadow-2xl border border-gray-700 hover:border-indigo-600">
+                        <div class="flex items-center justify-center h-14 w-14 rounded-full bg-sky-600/80 text-white mb-6 shadow-xl">
+                            <!-- Icon: Database/Server --><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10m12-4h4m0 0l-3-3m3 3l-3 3M4 12h8m-8 4h8"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Cross-Protocol Data Fabric</h3>
+                        <p class="text-gray-400">
+                            Unify data access from GraphQL, REST, and WebSockets under one `useBond` hook. The Fabric ensures optimal caching, consistency, and minimal network traffic automatically.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 3: Micro-Frontend Orchestration --><div class="bg-gray-800 p-8 rounded-xl transition duration-300 hover:bg-gray-700/70 shadow-2xl border border-gray-700 hover:border-indigo-600">
+                        <div class="flex items-center justify-center h-14 w-14 rounded-full bg-indigo-600/80 text-white mb-6 shadow-xl">
+                            <!-- Icon: Grid/Layout --><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 12h16M12 4v16"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Micro-Frontend Orchestration</h3>
+                        <p class="text-gray-400">
+                            Simplify the deployment and runtime communication between independent React applications (Module Federation or similar), ensuring they interact as if they were a single page.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- New: Integration Simplicity / Technical Credibility Section --><section class="py-28 sm:py-36 bg-gray-900 border-t border-b border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-4 text-white">
+                    Integration Simplicity: The <span class="accent-text">useBond</span> Hook
+                </h2>
+                <p class="text-lg text-center text-gray-400 max-w-4xl mx-auto mb-16">
+                    Our SDK is engineered for effortless adoption. Replace complex Redux or Context boilerplates with a single, highly performant hook that manages shared state and MFE data fabric.
+                </p>
+
+                <!-- Code Block Area -->
+                <div class="max-w-4xl mx-auto bg-gray-950 p-6 sm:p-10 rounded-xl shadow-2xl border border-indigo-500/30">
+                    <pre class="overflow-x-auto text-sm sm:text-base leading-relaxed">
+<code class="text-gray-200">
+import React from 'react';
+<span class="text-indigo-400">import { useBond } from '@reactbond/sdk';</span>
+import { UserProfileBond } from './bonds/UserBonds'; <span class="text-gray-500">// Your defined global state schema</span>
+
+<span class="text-green-400">// Component 1: A deep-nested header (MFE A)</span>
+const HeaderComponent = () => {
+  <span class="text-sky-400">const { user, isLoggedIn } = useBond(UserProfileBond);</span>
+
+  if (!isLoggedIn) return <span class="text-amber-500">(&lt;button&gt;Login&lt;/button&gt;)</span>;
+
+  return (
+    &lt;div&gt;
+      <span class="text-gray-500">// Real-time state from the Bonding Layer</span>
+      Welcome back, <span class="text-white font-bold">{user.firstName}!</span>
+    &lt;/div&gt;
+  );
+};
+
+<span class="text-green-400">// Component 2: A profile editor (MFE B)</span>
+const ProfileEditor = ({ userId }) => {
+  <span class="text-sky-400">const { user, updateBond } = useBond(UserProfileBond);</span>
+  
+  const handleSave = (newDetails) => {
+    <span class="text-gray-500">// Write operation instantly syncs across all bonded components (MFEs)</span>
+    <span class="text-indigo-400">updateBond({ ...user, ...newDetails });</span>
+  };
+
+  return <span class="text-amber-500">(&lt;ProfileForm onSave={handleSave} /&gt;)</span>;
+};
+</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section (New Content) --><section id="pricing" class="py-28 sm:py-36 bg-gray-900 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Title and Description --><h2 class="text-4xl font-extrabold text-center mb-4 text-white">
+                    Enterprise <span class="accent-text">Licensing & Pricing</span>
+                </h2>
+                <p class="text-lg text-center text-gray-400 max-w-3xl mx-auto mb-16">
+                    Secure your React Bonding license with tiered support and features designed for mission-critical, high-scale applications. All prices are in Naira (₦).
+                </p>
+
+                <!-- Google Certification Requirement Box --><div class="text-center mb-16 p-6 rounded-xl bg-yellow-900/40 border-2 border-yellow-700/50 max-w-xl mx-auto shadow-2xl shadow-yellow-800/20">
+                    <p class="text-xl font-bold text-yellow-300">PURCHASE REQUIREMENT:</p>
+                    <p class="text-2xl font-black text-white mt-1">
+                        You must be a Google Certified Developer to purchase any license tier.
+                    </p>
+                </div>
+
+                <!-- Pricing Grid --><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                    <!-- Card 1: Starter Bond (₦50,000) --><div class="bg-gray-800 p-6 rounded-xl border border-gray-700 flex flex-col h-full shadow-2xl">
+                        <h3 class="text-2xl font-bold text-indigo-400 mb-2">Starter Bond</h3>
+                        <p class="text-gray-400 mb-6">Pilot projects & initial integration.</p>
+                        <div class="text-4xl font-extrabold text-white mb-6">
+                            ₦50,000<span class="text-xl font-medium text-gray-400">/year</span>
+                        </div>
+                        
+                        <ul class="space-y-3 text-sm text-gray-300 flex-grow">
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Single-project core licensing</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Up to 5 Micro-Frontends (MFEs)</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Community and E-mail Support</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Basic Data Fabric caching</li>
+                        </ul>
+
+                        <button class="w-full mt-8 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition duration-300 signup-required">
+                            Purchase ₦50,000 Tier
+                        </button>
+                    </div>
+
+                    <!-- Card 2: Enterprise Fabric (₦120,000) (Popular) --><div class="bg-gray-700 p-6 rounded-xl border-2 border-indigo-500 flex flex-col h-full shadow-2xl shadow-indigo-500/30">
+                        <div class="text-center mb-4"><span class="bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Most Popular</span></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Enterprise Fabric</h3>
+                        <p class="text-gray-300 mb-6">Multi-team collaboration & scale.</p>
+                        <div class="text-4xl font-extrabold text-white mb-6">
+                            ₦120,000<span class="text-xl font-medium text-gray-400">/year</span>
+                        </div>
+                        
+                        <ul class="space-y-3 text-sm text-gray-100 flex-grow">
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> **Unlimited** Micro-Frontends</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Dedicated 12/5 Technical Support</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Advanced Security Policies</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> GraphQL & WebSocket integration</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Multi-region deployment support</li>
+                        </ul>
+
+                        <button class="w-full mt-8 bg-indigo-700 hover:bg-indigo-800 text-white font-black py-3 rounded-lg transition duration-300 signup-required">
+                            Purchase ₦120,000 Tier
+                        </button>
+                    </div>
+                    
+                    <!-- Card 3: Global Mesh (₦150,000) --><div class="bg-gray-800 p-6 rounded-xl border border-gray-700 flex flex-col h-full shadow-2xl">
+                        <h3 class="text-2xl font-bold text-indigo-400 mb-2">Global Mesh</h3>
+                        <p class="text-gray-400 mb-6">High-volume traffic & resilience.</p>
+                        <div class="text-4xl font-extrabold text-white mb-6">
+                            ₦150,000<span class="text-xl font-medium text-gray-400">/year</span>
+                        </div>
+                        
+                        <ul class="space-y-3 text-sm text-gray-300 flex-grow">
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Everything in Enterprise Fabric</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 24/7/365 Critical Support SLA</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Financial-grade Compliance Suite</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Dedicated Performance Architect</li>
+                        </ul>
+
+                        <button class="w-full mt-8 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition duration-300 signup-required">
+                            Purchase ₦150,000 Tier
+                        </button>
+                    </div>
+
+                    <!-- Card 4: Custom Integration (₦200,000) --><div class="bg-gray-800 p-6 rounded-xl border border-gray-700 flex flex-col h-full shadow-2xl">
+                        <h3 class="text-2xl font-bold text-indigo-400 mb-2">Custom Integration</h3>
+                        <p class="text-gray-400 mb-6">Bespoke features & legacy hook-up.</p>
+                        <div class="text-4xl font-extrabold text-white mb-6">
+                            ₦200,000<span class="text-xl font-medium text-gray-400">+/year</span>
+                        </div>
+                        
+                        <ul class="space-y-3 text-sm text-gray-300 flex-grow">
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> All features from all tiers</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> On-site Architecture Workshop</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Custom feature development sprints</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Legacy system integration consultancy</li>
+                        </ul>
+
+                        <button class="w-full mt-8 bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 rounded-lg transition duration-300 signup-required">
+                            Contact for Quote (₦200,000+ Tier)
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer --><footer class="bg-[#030712] border-t border-gray-800/50 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>&copy; 2025 REACTBOND. The Enterprise Integration Layer.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-indigo-400 transition duration-150">Documentation</a>
+                <a href="#" class="hover:text-indigo-400 transition duration-150">API Status</a>
+                <a href="#" class="hover:text-indigo-400 transition duration-150">Licensing</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="message-container" class="fixed inset-0 pointer-events-none z-[2000]">
+        <!-- Message Box Container --></div>
+
+    <script>
+        // --- JavaScript for Custom Message Box (Cleaned Up) ---
+
+        /**
+         * Custom message box function (replacing alert())
+         * @param {string} message - The message to display.
+         * @param {string} type - 'success' or 'error' to determine color.
+         */
+        function showMessage(message, type) {
+            const container = document.getElementById('message-container');
+            
+            // Remove any existing messages immediately
+            container.innerHTML = ''; 
+
+            const messageBox = document.createElement('div');
+            
+            // Base classes for positioning and style
+            let classes = 'message-box-base';
+            
+            // Type-specific classes
+            if (type === 'success') {
+                classes += ' bg-green-600 text-white';
+            } else {
+                classes += ' bg-red-600 text-white';
+            }
+
+            messageBox.className = classes;
+            messageBox.textContent = message;
+            
+            container.appendChild(messageBox);
+
+            // Fade out and remove after 3.5 seconds
+            setTimeout(() => {
+                messageBox.style.opacity = '0';
+                messageBox.style.transform = 'translateY(-20px) translateX(-50%)';
+                setTimeout(() => messageBox.remove(), 500);
+            }, 3500);
+        }
+
+        // --- Event Listeners ---
+        
+        // Listener for the top 'signup' button
+        document.getElementById('signup-button').addEventListener('click', function() {
+            showMessage('Access Denied. Only licensed developers can sign up.', 'error');
+        });
+
+        // Listeners for all pricing buttons (using a class selector)
+        document.querySelectorAll('.signup-required').forEach(button => {
+            button.addEventListener('click', function() {
+                showMessage('Purchase Denied: You must be a Google Certified Developer to proceed with this tier.', 'error');
+            });
+        });
+    </script>
+</body>
+</html>
