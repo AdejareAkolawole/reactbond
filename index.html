@@ -38,20 +38,40 @@
 <body class="text-gray-100 min-h-screen">
 
     <!-- Navbar --><header class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-md border-b border-gray-800">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             
-            <div class="flex items-center space-x-12">
+            <!-- Logo, Desktop Links/Button, and Mobile Toggle Container -->
+            <div class="flex justify-between items-center">
+                
                 <!-- Logo/Brand Name --><a href="#" class="text-3xl font-extrabold text-white tracking-wide flex items-center">
                     <span class="text-indigo-400">REACT</span><span class="text-gray-400">BOND</span>
                 </a>
                 
-                <!-- New Nav Link to Pricing --><a href="#pricing" class="text-gray-300 hover:text-indigo-400 transition hidden md:block font-semibold">Pricing</a>
+                <!-- Desktop Links (md and up) -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-12">
+                    <a href="#pricing" class="text-gray-300 hover:text-indigo-400 transition font-semibold">Pricing</a>
+                    <button id="signup-button-desktop" 
+                            class="bg-indigo-600 hover:bg-indigo-700 text-sm font-semibold py-2.5 px-6 rounded-lg transition duration-300 transform hover:scale-[1.02] shadow-lg shadow-indigo-500/30 signup-trigger">
+                        Only a licensed developer can signup
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button (Hamburger) -->
+                <button id="menu-toggle" class="md:hidden text-gray-300 hover:text-white p-2 rounded-lg">
+                    <!-- Hamburger Icon --><svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <!-- Close Icon --><svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
             </div>
 
-            <!-- Custom Signup Button --><button id="signup-button" 
-                    class="bg-indigo-600 hover:bg-indigo-700 text-sm font-semibold py-2.5 px-6 rounded-lg transition duration-300 transform hover:scale-[1.02] shadow-lg shadow-indigo-500/30">
-                Only a licensed developer can signup
-            </button>
+            <!-- Collapsible Mobile Menu (Hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden flex-col pt-4 pb-2 space-y-3 border-t border-gray-800 mt-4">
+                <!-- Pricing Link --><a href="#pricing" class="block text-gray-300 hover:text-indigo-400 transition font-semibold">Pricing</a>
+                
+                <!-- Custom Signup Button --><button id="signup-button-mobile" 
+                        class="bg-indigo-600 hover:bg-indigo-700 text-sm font-semibold py-2.5 px-6 rounded-lg transition duration-300 transform hover:scale-[1.02] shadow-lg shadow-indigo-500/30 w-full text-left signup-trigger">
+                    Only a licensed developer can signup
+                </button>
+            </div>
         </nav>
     </header>
 
@@ -187,7 +207,7 @@ const ProfileEditor = ({ userId }) => {
                 <!-- Google Certification Requirement Box --><div class="text-center mb-16 p-6 rounded-xl bg-yellow-900/40 border-2 border-yellow-700/50 max-w-xl mx-auto shadow-2xl shadow-yellow-800/20">
                     <p class="text-xl font-bold text-yellow-300">PURCHASE REQUIREMENT:</p>
                     <p class="text-2xl font-black text-white mt-1">
-                        You must be a Google Certified Developer to purchase any license tier.
+                        You must be a **Google Certified Developer** to purchase any license tier.
                     </p>
                 </div>
 
@@ -292,7 +312,7 @@ const ProfileEditor = ({ userId }) => {
         <!-- Message Box Container --></div>
 
     <script>
-        // --- JavaScript for Custom Message Box (Cleaned Up) ---
+        // --- JavaScript for Custom Message Box ---
 
         /**
          * Custom message box function (replacing alert())
@@ -330,17 +350,50 @@ const ProfileEditor = ({ userId }) => {
             }, 3500);
         }
 
-        // --- Event Listeners ---
-        
-        // Listener for the top 'signup' button
-        document.getElementById('signup-button').addEventListener('click', function() {
-            showMessage('Access Denied. Only licensed developers can sign up.', 'error');
+        // --- Navigation Toggle Logic ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('icon-open');
+        const iconClose = document.getElementById('icon-close');
+        const pricingLink = document.querySelector('#mobile-menu a[href="#pricing"]');
+
+        menuToggle.addEventListener('click', function() {
+            // Toggle menu visibility
+            mobileMenu.classList.toggle('hidden');
+            
+            // Toggle icons
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
         });
 
-        // Listeners for all pricing buttons (using a class selector)
-        document.querySelectorAll('.signup-required').forEach(button => {
+        // Close menu when a link inside it is clicked (especially the pricing link)
+        pricingLink.addEventListener('click', function() {
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+            }
+        });
+
+
+        // --- Event Listeners for Signup/Purchase ---
+        
+        // Listeners for all buttons that require certification/license check
+        document.querySelectorAll('.signup-trigger, .signup-required').forEach(button => {
             button.addEventListener('click', function() {
-                showMessage('Purchase Denied: You must be a Google Certified Developer to proceed with this tier.', 'error');
+                // If the button is inside the mobile menu, close the menu first for a better UX
+                if (button.closest('#mobile-menu')) {
+                    mobileMenu.classList.add('hidden');
+                    iconOpen.classList.remove('hidden');
+                    iconClose.classList.add('hidden');
+                }
+                
+                // Show the denial message
+                if (button.classList.contains('signup-trigger')) {
+                    showMessage('Access Denied. Only licensed developers can sign up.', 'error');
+                } else {
+                    showMessage('Purchase Denied: You must be a Google Certified Developer to proceed with this tier.', 'error');
+                }
             });
         });
     </script>
